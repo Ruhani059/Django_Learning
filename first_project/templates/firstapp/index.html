@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+  </head>
+  <body>
+    <!-- <div align='center'> -->
+      <h1>This is the index.html</h1>
+      <p>Today is my Birthday. Happy Birthday to me...</p>
+      <p align='center'>{{ insert_me }}</p>
+      <h1>Welcome</h1>
+      <h2>Access Record</h2>
+      <div class="djangotwo">
+        {% if access_records %}
+          <table>
+            <thead>
+              <th>Site Name</th>
+              <th>Date Access</th>
+            </thead>
+            {% for acc in access_records %}
+            <tr>
+              <td>{{ acc.name }}</td>
+              <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No Access Record Found. </p>
+        {% endif %}
+    </div>
+    <!-- </div> -->
+  </body>
+</html>
